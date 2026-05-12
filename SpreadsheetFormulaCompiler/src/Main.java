@@ -20,7 +20,6 @@ public class Main {
             System.out.println("=======================================");
             System.out.println("Input: " + input);
 
-            // --- Lexer phase ---
             try {
                 Lexer lexer = new Lexer(input);
                 List<Token> tokens = lexer.tokenize();
@@ -29,13 +28,12 @@ public class Main {
                     System.out.println("  " + t);
                 }
 
-                // --- Parser phase ---
                 Parser parser = new Parser(tokens);
                 FormulaNode ast = parser.parseFormula();
                 System.out.println("AST:");
                 System.out.println(ast.prettyPrint("  "));
             } catch (RuntimeException e) {
-                System.err.println("ERROR: " + e.getMessage());
+                System.out.println("ERROR: " + e.getMessage());
             }
             System.out.println();
         }

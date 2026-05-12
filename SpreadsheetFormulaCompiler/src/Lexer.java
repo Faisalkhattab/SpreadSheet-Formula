@@ -69,7 +69,8 @@ public class Lexer {
                 String word = input.substring(start, pos);
 
                 // Check if it's a function keyword
-                if (word.equals("SUM") || word.equals("MAX") || word.equals("MIN")) {
+                if (word.equals("SUM") || word.equals("MAX") || word.equals("MIN")
+                        || word.equals("AVERAGE") || word.equals("COUNT") || word.equals("PRODUCT")) {
                     tokens.add(new Token(TokenType.FUNCTION, word, start));
                 }
                 // Otherwise it must be a cell reference: letters then digits
